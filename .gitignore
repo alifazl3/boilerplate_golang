@@ -1,0 +1,9 @@
+# Uncomment the following lines if you're using go modules
+.idea/
+.vscode/
+.env
+postgres-data
+mysql-data
+storage/*git
+tmp/*
+tmp/
