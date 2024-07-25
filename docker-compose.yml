@@ -1,0 +1,37 @@
+version: '3.7'
+
+services:
+  db:
+    container_name: boilerplateDB
+    image: mysql:8.0.30
+    restart: always
+    ports:
+      - 7002:3306
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: VeryVerySafePassword
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_TCP_PORT: 3306
+
+
+  adminer:
+    container_name: boilerplate-adminer
+    image: adminer
+    restart: always
+    ports:
+      - 7001:8080
+
+#  app:
+#    container_name: boilerplate
+#    restart: always
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    ports:
+#      - '7070:3000'
+#    depends_on:
+#      - db
+#    volumes:
+#      - ./storage:/app/storage
